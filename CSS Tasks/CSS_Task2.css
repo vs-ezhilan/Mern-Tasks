@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.vertical-nav {
+  width: 200px;
+  height: auto;
+  background-color: lightblue;
+  border: 1px solid black;
+  padding: 10px;
+  background-clip: padding-box;
+  box-shadow: inset 0 0 10px white;
+}
+
+.vertical-nav a {
+  display: block;
+  color: blue;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.vertical-nav a.active {
+  background-color: orange;
+  color: white;
+}
+
+.vertical-nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.horizontal-nav {
+  display: flex;
+  border: 1px solid black;
+  background-color: lightgray;
+}
+
+.horizontal-nav a {
+  flex: 1;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: blue;
+  border-right: 1px solid #ccc;
+}
+
+.horizontal-nav a.active {
+  background-color: gray;
+  color: white;
+}
+
+.horizontal-nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.horizontal-nav a:last-child {
+  border-right: none;
+}

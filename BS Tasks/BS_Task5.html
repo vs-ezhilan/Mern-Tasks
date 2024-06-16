@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Task 5</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fa fa-user"></i></div>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              placeholder="First Name"
+              required
+            />
+          </div>
+          <div class="error" id="firstNameError"></div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fa fa-user"></i></div>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              placeholder="Last Name"
+              required
+            />
+          </div>
+          <div class="error" id="lastNameError"></div>
+        </div>
+        <div class="form-group">
+          <label for="email">E-Mail</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fa fa-envelope"></i></div>
+            </div>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="E-Mail Address"
+              required
+            />
+          </div>
+          <div class="error" id="emailError"></div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone #</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fa fa-phone"></i></div>
+            </div>
+            <input
+              type="tel"
+              class="form-control"
+              id="phone"
+              placeholder="(845)555-1212"
+              required
+            />
+          </div>
+          <div class="error" id="phoneError"></div>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fa fa-home"></i></div>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              id="address"
+              placeholder="Address"
+              required
+            />
+          </div>
+          <div class="error" id="addressError"></div>
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fa fa-city"></i></div>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              id="city"
+              placeholder="City"
+              required
+            />
+          </div>
+          <div class="error" id="cityError"></div>
+        </div>
+        <div class="form-group">
+          <label for="state">State</label>
+          <select class="form-control" id="state" required>
+            <option value="">Please select your state</option>
+            <option value="NY">New York</option>
+            <option value="CA">California</option>
+            <option value="TX">Texas</option>
+            <!-- Add more states as needed -->
+          </select>
+          <div class="error" id="stateError"></div>
+        </div>
+        <div class="form-group">
+          <label>Do you have hosting?</label>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="hostingYes"
+              name="hosting"
+              value="yes"
+              required
+            />
+            <label class="form-check-label" for="hostingYes">Yes</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="hostingNo"
+              name="hosting"
+              value="no"
+              required
+            />
+            <label class="form-check-label" for="hostingNo">No</label>
+          </div>
+          <div class="error" id="hostingError"></div>
+        </div>
+        <div class="form-group">
+          <label for="projectDescription">Project Description</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-pencil-alt"></i>
+              </div>
+            </div>
+            <textarea
+              class="form-control"
+              id="projectDescription"
+              rows="3"
+              placeholder="Project Description"
+              required
+            ></textarea>
+          </div>
+          <div class="error" id="projectDescriptionError"></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          var isValid = true;
+
+          document.querySelectorAll(".error").forEach(function (error) {
+            error.textContent = "";
+          });
+
+          if (!document.getElementById("firstName").value) {
+            isValid = false;
+            document.getElementById("firstNameError").textContent =
+              "First name is required";
+          }
+          if (!document.getElementById("lastName").value) {
+            isValid = false;
+            document.getElementById("lastNameError").textContent =
+              "Last name is required";
+          }
+          if (!document.getElementById("email").value) {
+            isValid = false;
+            document.getElementById("emailError").textContent =
+              "Email is required";
+          }
+          if (!document.getElementById("phone").value) {
+            isValid = false;
+            document.getElementById("phoneError").textContent =
+              "Phone number is required";
+          }
+          if (!document.getElementById("address").value) {
+            isValid = false;
+            document.getElementById("addressError").textContent =
+              "Address is required";
+          }
+          if (!document.getElementById("city").value) {
+            isValid = false;
+            document.getElementById("cityError").textContent =
+              "City is required";
+          }
+          if (!document.getElementById("state").value) {
+            isValid = false;
+            document.getElementById("stateError").textContent =
+              "State is required";
+          }
+          if (!document.querySelector('input[name="hosting"]:checked')) {
+            isValid = false;
+            document.getElementById("hostingError").textContent =
+              "Hosting option is required";
+          }
+          if (!document.getElementById("projectDescription").value) {
+            isValid = false;
+            document.getElementById("projectDescriptionError").textContent =
+              "Project description is required";
+          }
+
+          if (isValid) {
+            alert("Form submitted successfully!");
+          }
+        });
+    </script>
+  </body>
+</html>

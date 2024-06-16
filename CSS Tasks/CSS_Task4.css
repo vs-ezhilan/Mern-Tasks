@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin-left: 0;
+}
+
+.button {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  float: left;
+}
+
+button {
+  border: none;
+  font-size: 15px;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  position: relative;
+  z-index: 1;
+  transition: 0.3s;
+  left: -100px;
+}
+
+.about {
+  background-color: green;
+}
+
+.blog {
+  background-color: blue;
+}
+
+.projects {
+  background-color: red;
+}
+
+.contact {
+  background-color: brown;
+}
+
+.text {
+  float: left;
+  margin-left: 50px;
+  position: absolute;
+}
+
+button:hover {
+  left: -20px;
+}

@@ -1,0 +1,53 @@
+body {
+  font-family: "Georgia", serif;
+  margin: 0;
+  padding: 0;
+  background-color: #d4dd72;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 160px;
+  background-color: #d4dd72;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #00f;
+  background-color: #fff;
+  padding: 2px;
+  display: block;
+}
+
+.sidebar ul li a:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.content {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+h1 {
+  color: #8b008b;
+}
+
+p.footer {
+  font-style: italic;
+  font-size: smaller;
+}
