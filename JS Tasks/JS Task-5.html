@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Task 5</title>
+    <style>
+      .error {
+        color: red;
+        font-size: 12px;
+      }
+      input:invalid,
+      textarea:invalid {
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="myForm" onsubmit="return validateForm()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+      <span class="error" id="nameError">This field is required</span
+      ><br /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <span class="error" id="emailError"
+        >A valid email address is required</span
+      ><br /><br />
+
+      <label for="website">Website:</label>
+      <input type="url" id="website" name="website" required />
+      <span class="error" id="websiteError">A valid URL is required</span
+      ><br /><br />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+      <span class="error" id="messageError">This field is required</span
+      ><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      function validateForm() {
+        var valid = true;
+
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var website = document.getElementById("website").value;
+        var message = document.getElementById("message").value;
+
+        var nameError = document.getElementById("nameError");
+        var emailError = document.getElementById("emailError");
+        var websiteError = document.getElementById("websiteError");
+        var messageError = document.getElementById("messageError");
+
+        if (name === "") {
+          nameError.style.display = "inline";
+          valid = false;
+        } else {
+          nameError.style.display = "none";
+        }
+
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(email)) {
+          emailError.style.display = "inline";
+          valid = false;
+        } else {
+          emailError.style.display = "none";
+        }
+
+        var urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+        if (!urlPattern.test(website)) {
+          websiteError.style.display = "inline";
+          valid = false;
+        } else {
+          websiteError.style.display = "none";
+        }
+
+        if (message === "") {
+          messageError.style.display = "inline";
+          valid = false;
+        } else {
+          messageError.style.display = "none";
+        }
+
+        return valid;
+      }
+
+      document.getElementById("name").addEventListener("input", function () {
+        document.getElementById("nameError").style.display = this.value
+          ? "none"
+          : "inline";
+      });
+
+      document.getElementById("email").addEventListener("input", function () {
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        document.getElementById("emailError").style.display = emailPattern.test(
+          this.value
+        )
+          ? "none"
+          : "inline";
+      });
+
+      document.getElementById("website").addEventListener("input", function () {
+        var urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+        document.getElementById("websiteError").style.display = urlPattern.test(
+          this.value
+        )
+          ? "none"
+          : "inline";
+      });
+
+      document.getElementById("message").addEventListener("input", function () {
+        document.getElementById("messageError").style.display = this.value
+          ? "none"
+          : "inline";
+      });
+    </script>
+  </body>
+</html>

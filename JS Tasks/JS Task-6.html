@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Task 6</title>
+    <link rel="stylesheet" href="./JS Task-6.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <h1>Instagram</h1>
+      <form id="loginForm" onsubmit="return validateForm()">
+        <div class="input-group">
+          <i class="fa fa-user"></i>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <i class="fa fa-lock"></i>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <button type="submit" class="login-button">Log in</button>
+        <div class="options">
+          <label>
+            <input type="checkbox" name="remember" id="remember" /> Remember me
+          </label>
+          <a href="#" class="forgot-password">Forgot Password?</a>
+        </div>
+      </form>
+      <div class="signup">
+        Don't have an account? <a href="#">Sign up here.</a>
+      </div>
+    </div>
+    <script src="./JS Task-6.js"></script>
+  </body>
+</html>
